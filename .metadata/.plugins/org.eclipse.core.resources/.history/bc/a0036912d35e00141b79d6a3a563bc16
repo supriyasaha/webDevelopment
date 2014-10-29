@@ -1,0 +1,39 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.util.concurrent.BlockingQueue;
+
+
+public class Consumer implements Runnable{
+
+	protected BlockingQueue queue;
+	public Consumer(BlockingQueue queue) {
+		
+		this.queue=queue;
+		
+	}
+
+	@Override
+	public void run() {
+		try
+		{
+			String str=".";
+			BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			//InputStream input = socket.getInputStream();
+			OutputStream output = socket.getOutputStream();
+			while(!str.equals(""))
+				{str=br.readLine();}
+			output.write(socket.getReceiveBufferSize());
+			output.write(("request recieved").getBytes());
+			
+	        
+			output.close();
+			socket.close();
+		}
+		catch(Exception e)
+		{
+			System.out.println("error"+e);
+		}
+	}
+
+}

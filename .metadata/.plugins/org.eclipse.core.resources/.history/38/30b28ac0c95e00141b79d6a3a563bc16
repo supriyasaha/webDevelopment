@@ -1,0 +1,10 @@
+import java.util.concurrent.BlockingQueue;
+
+
+public class Consumer {
+
+	public Consumer(BlockingQueue queue) {
+		// TODO Auto-generated constructor stub
+	}
+
+}

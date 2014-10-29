@@ -1,0 +1,37 @@
+import java.io.IOException;
+import java.net.HttpRetryException;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+
+public class webserver {
+	
+	public static void main(String[] args)throws IOException
+	{
+		int listen_port;
+		ServerSocket s;
+		Socket serversocket=null;
+		 try {
+		      // create the main server socket
+		      s = new ServerSocket(80);
+		    } catch (Exception e) {
+		      System.out.println("Error: " + e);
+		      return;
+		    }
+		while(true)
+		{
+			Socket remote=null;
+			try
+			{
+			remote = s.accept();
+			}
+			catch (Exception e) {
+		        System.out.println("Error: " + e);
+			}
+			HttpRequest request = new HttpRequest(remote);
+			
+		}
+		
+	}
+
+}

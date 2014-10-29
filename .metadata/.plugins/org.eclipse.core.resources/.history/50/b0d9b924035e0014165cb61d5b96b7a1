@@ -1,0 +1,19 @@
+import java.net.Socket;
+
+
+public class HttpRequest implements Runnable {
+
+	Socket socket;
+	public HttpRequest(Socket remote) {
+		
+		this.socket=remote;
+	}
+	
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

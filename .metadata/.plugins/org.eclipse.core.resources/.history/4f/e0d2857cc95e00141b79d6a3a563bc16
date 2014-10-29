@@ -1,0 +1,11 @@
+import java.io.IOException;
+
+
+public class web_server {
+	
+	public static void main(String args[])throws IOException
+	{
+		
+	}
+
+}

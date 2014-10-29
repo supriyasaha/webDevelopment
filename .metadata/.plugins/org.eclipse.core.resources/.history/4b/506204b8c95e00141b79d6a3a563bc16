@@ -1,0 +1,10 @@
+import java.util.concurrent.BlockingQueue;
+
+
+public class Producer {
+
+	public Producer(BlockingQueue queue) {
+		// TODO Auto-generated constructor stub
+	}
+
+}

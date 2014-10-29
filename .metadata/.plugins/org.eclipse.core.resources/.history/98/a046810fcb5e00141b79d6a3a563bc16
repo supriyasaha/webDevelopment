@@ -1,0 +1,18 @@
+import java.util.concurrent.BlockingQueue;
+
+
+public class Producer implements Runnable {
+
+	@SuppressWarnings("rawtypes")
+	protected BlockingQueue queue=null;
+	public Producer(BlockingQueue queue) {
+		this.queue=queue;
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

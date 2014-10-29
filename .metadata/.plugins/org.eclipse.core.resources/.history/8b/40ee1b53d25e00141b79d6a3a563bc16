@@ -1,0 +1,48 @@
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.concurrent.BlockingQueue;
+
+
+public class Producer implements Runnable {
+
+	@SuppressWarnings("rawtypes")
+	protected BlockingQueue queue=null;
+	@SuppressWarnings("rawtypes")
+	public Producer(BlockingQueue queue) {
+		this.queue=queue;
+	}
+
+	@SuppressWarnings({ "unchecked", "resource" })
+	@Override
+	public void run() {
+		ServerSocket s;
+
+	    System.out.println("Webserver starting up on port 80");
+	    System.out.println("(press ctrl-c to exit)");
+	    try {
+	      // create the main server socket
+	      s = new ServerSocket(80);
+	    } catch (Exception e) {
+	      System.out.println("Error: " + e);
+	      return;
+	    }
+
+		while(true)
+		{
+			Socket remote=null;
+			try
+			{
+			
+			remote= s.accept();
+			
+			}
+			catch (Exception e) { 
+		        System.out.println("Error: " + e);
+			}
+			HttpRequest request = new HttpRequest(remote);
+			Thread thread = new Thread(request);
+			thread.start();
+		}
+	}
+
+}

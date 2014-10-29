@@ -1,0 +1,16 @@
+import java.util.concurrent.BlockingQueue;
+
+
+public class Consumer implements Runnable{
+
+	public Consumer(BlockingQueue queue) {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

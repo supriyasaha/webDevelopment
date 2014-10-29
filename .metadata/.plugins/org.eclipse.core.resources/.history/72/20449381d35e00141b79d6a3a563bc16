@@ -1,0 +1,34 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.Socket;
+import java.util.concurrent.BlockingQueue;
+
+
+public class Consumer implements Runnable{
+
+	protected BlockingQueue<HttpRequest> queue;
+	public Consumer(BlockingQueue<HttpRequest> queue) {
+		
+		this.queue=queue;
+		
+	}
+
+	@Override
+	public void run() {
+		
+		while(true)
+		{
+			HttpRequest request;
+			try {
+				request = queue.take();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println(request.socket);
+		
+		}
+	}
+
+}

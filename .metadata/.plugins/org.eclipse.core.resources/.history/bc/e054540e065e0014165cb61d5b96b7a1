@@ -1,0 +1,40 @@
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+
+public class webserver {
+	
+	public static ServerSocket serversocket = null;
+	
+	public static void main(String[] args)throws IOException
+	{
+
+	    /*System.out.println("Webserver starting up on port 80");
+	    System.out.println("(press ctrl-c to exit)");
+	    try {
+	      // create the main server socket
+	      s = new ServerSocket(80);
+	    } catch (Exception e) {
+	      System.out.println("Error: " + e);
+	      return;
+	    }
+*/
+		while(true)
+		{
+			Socket remote=null;
+			try
+			{
+			remote = this.serversocket.accept();
+			}
+			catch (Exception e) {
+		        System.out.println("Error: " + e);
+			}
+			HttpRequest request = new HttpRequest(remote);
+			Thread thread = new Thread(request);
+			thread.start();
+		}
+		
+	}
+
+}
